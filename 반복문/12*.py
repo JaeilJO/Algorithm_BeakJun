@@ -1,18 +1,24 @@
-N = input()
+N = int(input())
 
-count = 0
-i = 0
-while i <2:
-    print(N)
-    if len(N) < 2:
-        N = N+'0'
-    
-    first = int(N[0]) + int(N[1])
-    first = str(first)
-    
-    second = N[-1] + first[-1]
+# 첫자리 수
+first = N//10
 
-    N = second
+# 둘째자리 수
+second = N%10
 
+i=0
 
+while True:
+    # 둘째자리수의 첫번째 수와 처음주어진 첫째자리 수와 둘째자리수의 합의 둘째자리 수의 합
+    c = second*10 + (first+second)%10
+    first = c//10
+    second = c%10
     i+=1
+
+    if c==N:
+        break
+    else:
+        continue
+
+print(i)
+    
